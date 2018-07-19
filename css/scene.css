@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(lightblue, steelblue);
+}
+
+.sky::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(darkslategrey, black);
+  animation-name: sky;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+}
+
+.horizon {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to bottom, sienna 5%, darkgoldenrod 20%, sandybrown);
+}
+
+.road {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 350px);
+  width: 700px;
+  height: 60%;
+  border-left: 50px solid grey;
+  border-right: 50px solid grey;
+  background: linear-gradient(to bottom, black 40%, #444);
+  transform: perspective(10px) rotateX(4deg);
+}
+
+.line {
+  position: absolute;
+  left: calc(50% - 20px);
+  width: 40px;
+  height: 100px;
+  background-color: white;
+  transform: perspective(10px) rotateX(2deg);
+  z-index: 1;
+  animation-name: line;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes sky {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes line {
+  0% {
+    transform: perspective(10px) rotateX(2deg) scale(1);
+    top: 100%;
+  }
+
+  100% {
+    transform: perspective(10px) rotateX(2deg) scale(0.5);
+    top: 60%;
+  }
+}
