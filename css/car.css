@@ -3,7 +3,9 @@
 }
 
 .wrapper {
-  position: relative;
+  position: absolute;
+  left: calc(50% - 200px);
+  bottom: 25%;
   width: 400px;
   height: 400px;
   z-index: 10;
@@ -29,7 +31,7 @@
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   transform: perspective(200px) rotateX(40deg);
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .frame.top {
@@ -268,23 +270,23 @@
 
 @keyframes wipe {
   0%,
-  50%,
-  54%,
-  58%,
-  62%,
-  66%,
-  70%,
-  74%,
-  100% {
-    transform: rotate(2deg);
-  }
-
+  40%,
+  44%,
+  48%,
   52%,
   56%,
   60%,
   64%,
-  68%,
-  72% {
+  100% {
+    transform: rotate(2deg);
+  }
+
+  42%,
+  46%,
+  50%,
+  54%,
+  58%,
+  62% {
     transform: rotate(60deg);
   }
 }
