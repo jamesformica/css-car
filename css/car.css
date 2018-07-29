@@ -2,6 +2,38 @@
   box-sizing: border-box;
 }
 
+.drive {
+  position: fixed;
+  top: 0;
+  width: 33vw;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.drive.left {
+  left: 0;
+}
+
+.drive.right {
+  right: 0;
+}
+
+.drive.left:hover ~ .wrapper {
+  transform: translateX(-10%);
+}
+
+.drive.right:hover ~ .wrapper {
+  transform: translateX(10%);
+}
+
+.drive.left:hover ~ .wrapper > .top > .steering-wheel {
+  transform: rotate(-40deg);
+}
+
+.drive.right:hover ~ .wrapper > .top > .steering-wheel {
+  transform: rotate(40deg);
+}
+
 .wrapper {
   position: absolute;
   left: calc(50% - 200px);
@@ -9,9 +41,8 @@
   width: 400px;
   height: 400px;
   z-index: 10;
-  animation-name: drive;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
+  transition: 0.8s;
+  transition-timing-function: ease-out;
 }
 
 .top {
@@ -50,9 +81,7 @@
   height: 80px;
   border-radius: 50%;
   border: 4px solid peru;
-  animation-name: steer;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
+  transition: 1s;
 }
 
 .steering-wheel::before {
@@ -288,53 +317,6 @@
   58%,
   62% {
     transform: rotate(60deg);
-  }
-}
-
-@keyframes steer {
-  0%,
-  15%,
-  25%,
-  35%,
-  45%,
-  50%,
-  60%,
-  80%,
-  90%,
-  100% {
-    transform: rotate(0deg);
-  }
-
-  20%,
-  85% {
-    transform: rotate(30deg);
-  }
-
-  40%,
-  55% {
-    transform: rotate(-40deg);
-  }
-}
-
-@keyframes drive {
-  0%,
-  15%,
-  40%,
-  50%,
-  90%,
-  100% {
-    transform: translateX(0);
-  }
-
-  20%,
-  35%,
-  85% {
-    transform: translateX(10%);
-  }
-
-  55%,
-  80% {
-    transform: translateX(-10%);
   }
 }
 

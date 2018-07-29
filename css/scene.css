@@ -42,6 +42,42 @@ body {
   animation-iteration-count: infinite;
 }
 
+.stars {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 4px;
+  height: 4px;
+  background: white;
+  filter: blur(1px);
+  box-shadow:
+    200px 100px white,
+    600px 120px white,
+    300px 300px white,
+    500px 50px white,
+    400px 200px white;
+  animation-name: sky;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+}
+
+.stars::after {
+  content: '';
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 4px;
+  height: 4px;
+  background: white;
+  filter: blur(1px);
+  box-shadow:
+    -200px 200px white,
+    -600px 180px white,
+    -300px 100px white,
+    -500px 250px white,
+    -400px 110px white;
+}
+
 .sun-moon {
   position: absolute;
   top: 50px;
@@ -176,6 +212,29 @@ body {
   right: 20px;
   width: 90px;
   height: 90px;
+}
+
+.steer {
+  position: absolute;
+  color: white;
+  height: 30px;
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.steer.left {
+  right: 0;
+  transform: rotate(90deg) translateY(-50%);
+}
+
+.steer.right {
+  left: 0;
+  transform: rotate(-90deg) translateY(-70%);
 }
 
 @keyframes sky {
