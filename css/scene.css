@@ -153,6 +153,15 @@ body {
   animation-timing-function: linear;
 }
 
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .cloud {
   position: absolute;
   width: 300px;
